@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>ITES Ltd. — Ins Tech Engineering Solutions Ltd.</title>
+    <meta name="description" content="ITES Ltd. (Ins Tech Engineering Solutions Ltd.) — engineering & technology solutions in the UK.">
+
+    <link rel="icon" href="./meta/favicon.ico" />
+    <link rel="preload" href="./css/tokens.css" as="style" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/utilities.css" />
+
+    <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar" data-topbar>
+    <div class="container topbar__inner">
+        <a class="brand" href="#/home" aria-label="Go to Home">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__text">ITES Ltd.</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
+            <span class="visually-hidden">Menu</span>
+            <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+
+        <nav id="nav" class="nav" aria-label="Primary navigation">
+            <a class="nav__link" href="#/home" data-route="home">Home</a>
+            <a class="nav__link" href="#/about" data-route="about">About us</a>
+            <a class="nav__link" href="#/work" data-route="work">Our work</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main" class="main container" data-outlet aria-live="polite"></main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <small>© <span data-year></span> Company Name. All rights reserved.</small>
+    </div>
+</footer>
+
+<noscript>
+    <div class="container" style="padding:16px">
+        This site requires JavaScript for navigation.
+    </div>
+</noscript>
+</body>
+</html>
