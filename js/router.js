@@ -1,4 +1,5 @@
 import { loadPage } from './pages.js';
+import { initWork } from './work.js';
 
 const routes = new Map([
     ['home',  '/pages/home.html'],
@@ -23,12 +24,14 @@ function setActiveLink(key) {
 
 async function render() {
     const outlet = document.querySelector('[data-outlet]');
+    if (!outlet) return;
     const key = getRouteKey();
-
     setActiveLink(key);
     outlet.innerHTML = await loadPage(routes.get(key));
-
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (key === 'work') {
+        initWork();
+    }
+    window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
 export function initRouter() {

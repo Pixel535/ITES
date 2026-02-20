@@ -1,0 +1,82 @@
+.slider{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* viewport ma stały box, niezależny od obrazu */
+.slider__viewport{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    overflow: hidden;
+}
+
+.slider__imgwrap{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+/* OBRAZ: zawsze w całości, zero crop */
+.slider__img{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: cover;
+    object-position: center !important;
+
+    display: block;
+    opacity: 1;
+    transition: opacity .22s ease;
+
+    /* żeby na ciemnym tle wyglądało dobrze */
+    background: transparent;
+}
+
+.slider__img.is-fading{
+    opacity: 0;
+}
+
+/* buttons: zawsze na środku panelu, NIE zależą od obrazu */
+.slider__btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(0,0,0,.35);
+    color: #fff;
+    cursor: pointer;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    line-height: 1;
+    user-select: none;
+}
+
+.slider__btn:hover{
+    background: rgba(0,0,0,.48);
+    border-color: rgba(255,255,255,.32);
+}
+
+.slider__btn--prev{ left: 14px; }
+.slider__btn--next{ right: 14px; }
+
+/* touch targety na mobile */
+@media (max-width: 900px){
+    .slider__viewport{ padding: 14px; }
+    .slider__btn{
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+    }
+}

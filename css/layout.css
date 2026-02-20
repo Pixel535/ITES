@@ -4,19 +4,34 @@
 }
 
 .topbar{
-    position: sticky; top: 0; z-index: 50;
-    backdrop-filter: blur(10px);
-    background: color-mix(in oklab, var(--bg) 80%, transparent);
-    border-bottom: 1px solid var(--border);
-    height: var(--topbar-h);
+    height: var(--topbar-h, 64px);
+    min-height: var(--topbar-h, 64px);
+    background: var(--brand);
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
-.topbar__inner{ display:flex; align-items:center; justify-content:space-between; gap: var(--space-3); }
 
-.brand{ display:flex; align-items:center; gap: 10px; }
-.brand__mark{ width: 28px; height: 28px; border-radius: 10px; background: var(--fg); opacity:.9; }
-.brand__text{ font-weight: 600; letter-spacing: .2px; }
+
+.topbar__inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    letter-spacing: .08em;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #fff;
+}
 
 .main{
     flex: 1;
@@ -31,4 +46,19 @@
 }
 @media (min-width: 768px){
     .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* MOBILE: topbar zawsze widoczny, bez bugów sticky */
+@media (max-width: 899px){
+    .topbar{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+    /* robi miejsce pod fixed topbar */
+    .main{
+        padding-top: calc(var(--topbar-h, 64px) + var(--space-5));
+    }
 }
