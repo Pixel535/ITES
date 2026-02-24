@@ -1,10 +1,13 @@
 import { loadPage } from './pages.js';
-import { initWork } from './work.js';
+import { initPortfolio } from './portfolio.js';
 
 const routes = new Map([
-    ['home',  '/pages/home.html'],
+    ['home', '/pages/home.html'],
     ['about', '/pages/about.html'],
-    ['work',  '/pages/work.html'],
+    ['portfolio', '/pages/portfolio.html'],
+    ['work-process', '/pages/work-process.html'],
+    ['services', '/pages/services.html'],
+    ['contact', '/pages/contact.html'],
 ]);
 
 function getRouteKey() {
@@ -28,8 +31,9 @@ async function render() {
     const key = getRouteKey();
     setActiveLink(key);
     outlet.innerHTML = await loadPage(routes.get(key));
-    if (key === 'work') {
-        initWork();
+
+    if (key === 'portfolio') {
+        initPortfolio();
     }
     window.scrollTo({ top: 0, behavior: 'auto' });
 }

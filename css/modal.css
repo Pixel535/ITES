@@ -40,21 +40,22 @@ body.modal-open{
 
 .modal__close{
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
-    border: 1px solid rgba(0,0,0,.14);
-    background: rgba(255,255,255,.92);
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    padding: 8px;
+    color: var(--modal-close-color);
+    font-size: 28px;
+    line-height: 1;
     cursor: pointer;
     z-index: 5;
-    display: grid;
-    place-items: center;
-    font-size: 18px;
+    transition: color .2s ease, transform .2s ease;
 }
 
-.modal__close:hover{ border-color: rgba(94,21,33,.35); }
+.modal__close:hover{
+    color: var(--modal-close-hover);
+}
 
 .modal__content{
     height: 100%;
@@ -101,12 +102,12 @@ body.modal-open{
 .modal__link{
     display: inline-block;
     margin-bottom: 14px;
-    color: var(--brand);
+    color: var(--secondary-color);
     text-decoration: none;
     overflow-wrap: anywhere;
 }
 .modal__link:hover{
-    color: var(--brand-hover);
+    color: var(--secondary-color-hover);
     text-decoration: underline;
 }
 
@@ -121,100 +122,6 @@ body.modal-open{
     flex-wrap: wrap;
     gap: 10px;
 }
-
-/* =========================
-   SLIDER (inside modal)
-   - bez przycinania
-   - wypełnia lewą część
-   - tło ciemne (cover) + przód contain
-   ========================= */
-
-.modal .slider{
-    position: absolute;
-    inset: 0;
-}
-
-.modal .slider__viewport{
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-/* wrapper całego slajdu */
-.modal .slider__imgwrap{
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-/* tło: zawsze wypełnia (cover), ciemniejsze */
-.modal .slider__imgwrap::before{
-    content:"";
-    position: absolute;
-    inset: 0;
-    background-image: var(--slide-url);
-    background-size: cover;
-    background-position: center;
-    filter: blur(12px);
-    transform: scale(1.06);
-    opacity: .28;
-}
-
-/* dodatkowe przyciemnienie */
-.modal .slider__imgwrap::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: rgba(0,0,0,.55);
-}
-
-/* przód: obraz zawsze w całości (contain) */
-.modal .slider__img{
-    position: absolute;
-    inset: 0;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: contain !important;
-    object-position: center !important;
-
-    display: block;
-    z-index: 1;
-
-    opacity: 1;
-    transition: opacity .22s ease;
-}
-
-.modal .slider__img.is-fading{ opacity: 0; }
-
-/* strzałki zawsze w środku panelu */
-.modal .slider__btn{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.22);
-    background: rgba(0,0,0,.35);
-    color: #fff;
-    cursor: pointer;
-    z-index: 3;
-    display: grid;
-    place-items: center;
-    font-size: 28px;
-    line-height: 1;
-    user-select: none;
-}
-
-.modal .slider__btn:hover{
-    background: rgba(0,0,0,.48);
-    border-color: rgba(255,255,255,.32);
-}
-
-.modal .slider__btn--prev{ left: 14px; }
-.modal .slider__btn--next{ right: 14px; }
 
 /* MOBILE */
 @media (max-width: 900px){
@@ -240,7 +147,7 @@ body.modal-open{
     }
 
     .modal__left{
-        height: 280px;
+        height: 480px;
         flex-shrink: 0;
     }
 

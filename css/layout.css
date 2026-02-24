@@ -6,7 +6,7 @@
 .topbar{
     height: var(--topbar-h, 64px);
     min-height: var(--topbar-h, 64px);
-    background: var(--brand);
+    background: var(--primary-color);
     display: flex;
     align-items: center;
     position: sticky;

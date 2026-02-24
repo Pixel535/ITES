@@ -4,11 +4,14 @@
     "title": "Równe ziomeczki",
     "address": "Jana Pawła II 32",
     "tags": ["Meme", "Look at this dude"],
-    "cover": "/assets/work/project-1/1.webp",
+    "cover": "/assets/portfolio/project-1/1.webp",
     "images": [
-      "/assets/work/project-1/1.webp",
-      "/assets/work/project-1/2.webp",
-      "/assets/work/project-1/3.webp"
+      "/assets/portfolio/project-1/1.webp",
+      "/assets/portfolio/project-1/2.webp",
+      "/assets/portfolio/project-1/3.webp",
+      "/assets/portfolio/project-1/4.webp",
+      "/assets/portfolio/project-1/5.webp",
+      "/assets/portfolio/project-1/6.webp"
     ],
     "description": "Short, premium description of the project. What was delivered, impact, stack, etc."
   },
@@ -17,10 +20,10 @@
     "title": "Metale",
     "address": "",
     "tags": ["Chuj"],
-    "cover": "/assets/work/project-2/1.webp",
+    "cover": "/assets/portfolio/project-2/1.webp",
     "images": [
-      "/assets/work/project-2/1.webp",
-      "/assets/work/project-2/2.webp"
+      "/assets/portfolio/project-2/1.webp",
+      "/assets/portfolio/project-2/2.webp"
     ],
     "description": "Brand system, guidelines, assets, and launch materials."
   }

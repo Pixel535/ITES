@@ -2,9 +2,16 @@
     /* colors */
     --bg: #ffffff;
     --text: #242121;                  /* rgb(36,33,33) */
+    --primary-color: #242121;                  /* rgb(36,33,33) */
     --text-muted: rgba(36,33,33,.65);
-    --brand: #5E1521;                 /* rgb(94,21,33) */
-    --brand-hover: #741c2b;
+    --secondary-color: #5E1521;                 /* rgb(94,21,33) */
+    --secondary-color-hover: #741c2b;
+
+    --slider-arrow-color: #374151;   /* gray 700 */
+    --slider-arrow-hover: #111827;
+
+    --modal-close-color: #374151;
+    --modal-close-hover: #111827;
 
     --border: rgba(36,33,33,.10);
     --card: rgba(36,33,33,.03);
