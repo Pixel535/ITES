@@ -28,13 +28,18 @@ function setActiveLink(key) {
 async function render() {
     const outlet = document.querySelector('[data-outlet]');
     if (!outlet) return;
+
     const key = getRouteKey();
     setActiveLink(key);
+
     outlet.innerHTML = await loadPage(routes.get(key));
 
     if (key === 'portfolio') {
         initPortfolio();
     }
+
+    document.dispatchEvent(new CustomEvent('route:change', { detail: { key } }));
+
     window.scrollTo({ top: 0, behavior: 'auto' });
 }
 

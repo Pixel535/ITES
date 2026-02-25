@@ -1,8 +1,79 @@
-<section class="section">
-    <h1 class="h1">Premium, minimalist web presence.</h1>
-    <p class="lead">A short, confident value proposition for a UK company.</p>
-    <div class="actions">
-        <a class="btn" href="#/portfolio">View portfolio</a>
-        <a class="btn btn--ghost" href="#/about">About us</a>
+<section class="home-hero" data-hero>
+    <div class="home-hero__media" aria-hidden="true">
+        <video
+                class="home-hero__video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="./assets/home/hero-poster.jpg"
+        >
+            <!-- docelowo dodaj też webm jako pierwsze źródło -->
+            <!-- <source src="./assets/home/hero.webm" type="video/webm"> -->
+            <source src="./assets/home/hero.mp4" type="video/mp4">
+        </video>
+        <div class="home-hero__overlay"></div>
+    </div>
+
+    <div class="home-hero__inner">
+        <div class="home-hero__content">
+            <p class="home-hero__eyebrow">UK-based • Engineering & Technology</p>
+            <h1 class="home-hero__title">Ins Tech Engineering Solutions Ltd.</h1>
+            <p class="home-hero__lead">
+                Premium, minimalist engineering & tech solutions — built for performance and reliability.
+            </p>
+
+            <div class="home-hero__actions">
+                <a class="btn btn--primary" href="#/services">Explore services</a>
+                <a class="btn btn--ghost" href="#/portfolio">View portfolio</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-s home-s--split">
+    <div class="home-s__inner">
+        <div class="home-s__text">
+            <h2 class="home-s__title">Engineering & Technology, done right.</h2>
+            <p class="home-s__lead">
+                We deliver clean, performance-minded solutions with a premium finish — from planning to execution.
+                No clutter, no overengineering — just reliable results.
+            </p>
+        </div>
+
+        <figure class="home-s__media">
+            <img
+                    class="home-s__img"
+                    src="/assets/home/1.webp"
+                    alt="ITES — engineering & technology"
+                    loading="lazy"
+                    decoding="async"
+            />
+        </figure>
+    </div>
+</section>
+
+<section class="home-s home-s--split home-s--reverse home-s--sep-top">
+    <div class="home-s__inner">
+
+        <figure class="home-s__media">
+            <img
+                    class="home-s__img"
+                    src="/assets/home/2.webp"
+                    alt="ITES engineering process"
+                    loading="lazy"
+                    decoding="async"
+            />
+        </figure>
+
+        <div class="home-s__text">
+            <h2 class="home-s__title">Built with precision and clarity.</h2>
+            <p class="home-s__lead">
+                Every project is approached with structure, technical depth and a focus on long-term maintainability.
+                We combine engineering discipline with modern technology to deliver solutions that scale.
+            </p>
+        </div>
+
     </div>
 </section>

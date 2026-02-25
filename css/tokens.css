@@ -39,6 +39,7 @@
     --space-3: 16px;
     --space-4: 24px;
     --space-5: 48px;
+    --space-6: 64px;
 }
 
 @media (prefers-color-scheme: light){

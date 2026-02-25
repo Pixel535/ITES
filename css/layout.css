@@ -9,8 +9,10 @@
     background: var(--primary-color);
     display: flex;
     align-items: center;
-    position: sticky;
+    position: fixed;     /* było sticky */
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
 }
 
@@ -35,7 +37,8 @@
 
 .main{
     flex: 1;
-    padding-block: var(--space-5);
+    padding-top: calc(var(--topbar-h, 64px) + var(--space-5));
+    padding-bottom: var(--space-5);
 }
 .section{ padding-block: var(--space-5); }
 
@@ -61,4 +64,15 @@
     .main{
         padding-top: calc(var(--topbar-h, 64px) + var(--space-5));
     }
+}
+
+/* Topbar: tryb hero (transparent) */
+.topbar.is-hero{
+    background: var(--topbar-hero-bg, transparent);
+}
+
+/* (opcjonalnie) jeśli chcesz, żeby brand/linki na hero były białe,
+   a poza hero wracały do normalnego stylu */
+.topbar.is-hero .brand{
+    color: var(--topbar-hero-fg, #fff);
 }

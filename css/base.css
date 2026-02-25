@@ -6,7 +6,10 @@
     font-display: swap;
 }
 
-html, body { height: auto; }
+html, body{
+    height: auto;
+    overflow-x: hidden;
+}
 
 body{
     min-height: 100vh;
