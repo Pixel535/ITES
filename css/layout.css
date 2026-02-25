@@ -22,17 +22,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-3);
 }
 
 .brand{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
     font-weight: 600;
     letter-spacing: .08em;
     font-size: 1.1rem;
     text-transform: uppercase;
     color: #fff;
+    white-space: nowrap;
 }
 
 .main{
@@ -53,16 +54,33 @@
 
 /* MOBILE: topbar zawsze widoczny, bez bugów sticky */
 @media (max-width: 899px){
-    .topbar{
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
+    .topbar__inner{
+        display: grid;
+        grid-template-columns: 44px 1fr 44px;
+        align-items: center;
+        gap: 0;
     }
 
-    /* robi miejsce pod fixed topbar */
-    .main{
-        padding-top: calc(var(--topbar-h, 64px) + var(--space-5));
+    .nav-toggle{
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .brand{
+        grid-column: 2;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .topbar__right{
+        grid-column: 3;
+        justify-self: end;
+        min-width: 44px; /* balansuje burgera */
+    }
+
+    /* nav overlay (jeśli masz drawer) niech nie psuje layoutu */
+    .nav{
+        grid-column: 1 / -1;
     }
 }
 
@@ -75,4 +93,27 @@
    a poza hero wracały do normalnego stylu */
 .topbar.is-hero .brand{
     color: var(--topbar-hero-fg, #fff);
+}
+
+/* Desktop layout: brand left, nav right */
+@media (min-width: 900px){
+    .nav-toggle{ display: none; }
+
+    .brand{ order: 0; }
+    .nav{ order: 1; margin-left: auto; }
+    .topbar__right{ order: 2; }
+
+    .nav{
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav__link{ white-space: nowrap; }
+}
+
+@media (max-width: 1250px) and (min-width: 900px){
+    .nav{ gap: var(--space-2); }
+    .nav__link{ font-size: .95rem; }
 }
