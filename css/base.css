@@ -47,3 +47,53 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
     font-size: var(--fs-3);
     color: var(--text-muted);
 }
+
+.loader{
+    position: fixed;
+    inset: 0;
+    background: var(--loader-bg);
+    display: grid;
+    place-items: center;
+    z-index: var(--loader-z);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, visibility .18s ease;
+}
+
+.loader.is-active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.loader__inner{
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+}
+
+.loader__spinner{
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border-radius: 999px;
+    border: var(--loader-ring) solid rgba(0,0,0,.08);
+    border-top-color: var(--loader-fg);
+    animation: loaderSpin .85s linear infinite;
+}
+
+.loader__text{
+    font-size: .95rem;
+    color: rgba(0,0,0,.55);
+    letter-spacing: .02em;
+}
+
+@keyframes loaderSpin{
+    to{ transform: rotate(360deg); }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce){
+    .loader__spinner{ animation: none; }
+}

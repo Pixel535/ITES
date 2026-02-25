@@ -1,4 +1,5 @@
 import { openModal } from './modal.js';
+import { loaderStart, loaderEnd } from './loader.js';
 
 let items = [];
 let activeTag = 'All';
@@ -8,7 +9,12 @@ export async function initPortfolio() {
     const grid = document.querySelector('[data-portfolio-grid]');
     if (!tagbar || !grid) return;
 
-    items = await fetch('/data/portfolio.json', { cache: 'no-store' }).then(r => r.json());
+    loaderStart({ delayMs: 150 });
+    try {
+        items = await fetch('/data/portfolio.json', { cache: 'no-store' }).then(r => r.json());
+    } finally {
+        loaderEnd();
+    }
 
     const saved = sessionStorage.getItem('portfolio:activeTag');
     sessionStorage.removeItem('portfolio:activeTag');

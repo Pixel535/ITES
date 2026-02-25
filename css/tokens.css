@@ -40,6 +40,12 @@
     --space-4: 24px;
     --space-5: 48px;
     --space-6: 64px;
+
+    --loader-bg: #fff;
+    --loader-fg: var(--secondary-color);
+    --loader-size: 44px;
+    --loader-ring: 4px;
+    --loader-z: 9999;
 }
 
 @media (prefers-color-scheme: light){

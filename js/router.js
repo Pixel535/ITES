@@ -1,5 +1,6 @@
 import { loadPage } from './pages.js';
 import { initPortfolio } from './portfolio.js';
+import { loaderStart, loaderEnd } from './loader.js';
 
 const routes = new Map([
     ['home', '/pages/home.html'],
@@ -32,15 +33,22 @@ async function render() {
     const key = getRouteKey();
     setActiveLink(key);
 
-    outlet.innerHTML = await loadPage(routes.get(key));
+    loaderStart({ delayMs: 150 });
 
-    if (key === 'portfolio') {
-        initPortfolio();
+    try {
+        outlet.innerHTML = await loadPage(routes.get(key));
+
+        if (key === 'portfolio') {
+            initPortfolio();
+        }
+
+        document.dispatchEvent(new CustomEvent('route:change', { detail: { key } }));
+        document.dispatchEvent(new CustomEvent('route:rendered', { detail: { key } }));
+
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    } finally {
+        loaderEnd();
     }
-
-    document.dispatchEvent(new CustomEvent('route:change', { detail: { key } }));
-
-    window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
 export function initRouter() {
