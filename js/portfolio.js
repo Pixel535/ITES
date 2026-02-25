@@ -10,7 +10,19 @@ export async function initPortfolio() {
 
     items = await fetch('/data/portfolio.json', { cache: 'no-store' }).then(r => r.json());
 
+    const saved = sessionStorage.getItem('portfolio:activeTag');
+    sessionStorage.removeItem('portfolio:activeTag');
+
+    if (saved) {
+        const tagSet = new Set();
+        items.forEach(i => (i.tags || []).forEach(t => tagSet.add(t)));
+
+        activeTag = tagSet.has(saved) ? saved : 'All';
+    } else {
+        activeTag = 'All';
+    }
     renderTags(tagbar, items);
+    setActiveTag(tagbar, activeTag);
     renderGrid(grid, items);
 
     tagbar.addEventListener('click', (e) => {

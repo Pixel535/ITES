@@ -35,10 +35,20 @@ function mountHome() {
 
     obs.observe(hero);
 
+    const onWorkClick = (e) => {
+        const a = e.target.closest('a[data-portfolio-tag]');
+        if (!a) return;
+        const tag = a.dataset.portfolioTag;
+        if (tag) sessionStorage.setItem('portfolio:activeTag', tag);
+    };
+
+    document.addEventListener('click', onWorkClick, true);
+
     return () => {
         obs.disconnect();
         setTopbarHeroMode(false);
         setHomeMainOffsetDisabled(false);
+        document.removeEventListener('click', onWorkClick, true);
     };
 }
 
