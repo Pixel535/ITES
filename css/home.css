@@ -14,8 +14,7 @@
 
     --topbar-hero-fg: #ffffff;
     --topbar-hero-bg: rgba(0,0,0,0); /* transparent */
-    --home-sep-w: clamp(180px, 70vw, 750px);
-    --home-sep-h: 3px;
+    --home-sep-h: 1px;
 
     --home-s-py: var(--space-6, 64px);
     --home-s-gap: var(--space-5, 32px);
@@ -133,8 +132,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: var(--home-sep-w);
-    max-width: 100%;
+    width: 100%;
     height: var(--home-sep-h);
     background: var(--secondary-color);
     border-radius: 999px;
