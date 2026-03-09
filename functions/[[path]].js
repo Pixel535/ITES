@@ -11,6 +11,7 @@ const STATIC_PREFIXES = [
     '/js/',
     '/meta/',
     '/data/',
+    '/pages/',
     '/favicon.ico'
 ];
 
@@ -30,18 +31,31 @@ function isMaintenanceEnabled(env) {
 }
 
 export async function onRequest(context) {
-    const { request, env } = context;
-    const url = new URL(request.url);
-    const { pathname } = url;
+    try {
+        const { request, env } = context;
+        const url = new URL(request.url);
+        const { pathname } = url;
 
-    if (
-        isMaintenanceEnabled(env) &&
-        isHtmlNavigation(request) &&
-        !SYSTEM_PAGE_PATHS.has(pathname) &&
-        !isStaticAsset(pathname)
-    ) {
-        return env.ASSETS.fetch(new URL('/maintenance', url.origin));
+        const shouldShowMaintenance =
+            isMaintenanceEnabled(env) &&
+            isHtmlNavigation(request) &&
+            !SYSTEM_PAGE_PATHS.has(pathname) &&
+            !isStaticAsset(pathname);
+
+        if (shouldShowMaintenance) {
+            return Response.redirect(`${url.origin}/maintenance`, 302);
+        }
+
+        return context.next();
+    } catch (error) {
+        return new Response(
+            `Maintenance function error: ${error instanceof Error ? error.message : 'unknown error'}`,
+            {
+                status: 500,
+                headers: {
+                    'content-type': 'text/plain; charset=utf-8'
+                }
+            }
+        );
     }
-
-    return env.ASSETS.fetch(request);
 }
