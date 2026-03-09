@@ -10,7 +10,8 @@ const STATIC_PREFIXES = [
     '/css/',
     '/js/',
     '/meta/',
-    '/data/'
+    '/data/',
+    '/favicon.ico'
 ];
 
 function isStaticAsset(pathname) {
@@ -25,7 +26,7 @@ function isHtmlNavigation(request) {
 }
 
 function isMaintenanceEnabled(env) {
-    return String(env.MAINTENANCE_MODE || '').toLowerCase() === 'true';
+    return String(env.MAINTENANCE_MODE ?? '').trim().toLowerCase() === 'true';
 }
 
 export async function onRequest(context) {
@@ -39,8 +40,7 @@ export async function onRequest(context) {
         !SYSTEM_PAGE_PATHS.has(pathname) &&
         !isStaticAsset(pathname)
     ) {
-        url.pathname = '/maintenance.html';
-        return env.ASSETS.fetch(new Request(url.toString(), request));
+        return env.ASSETS.fetch(new URL('/maintenance', url.origin));
     }
 
     return env.ASSETS.fetch(request);

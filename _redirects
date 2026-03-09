@@ -4,7 +4,5 @@ http://itesltd.com/* https://itesltd.com/:splat 301
 
 /maintenance /maintenance.html 200
 /error /error.html 200
-/maintenance.html /maintenance.html 200
-/error.html /error.html 200
 
 /* /index.html 200
