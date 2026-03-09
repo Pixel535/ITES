@@ -2,7 +2,4 @@ https://www.itesltd.com/* https://itesltd.com/:splat 301
 http://www.itesltd.com/* https://itesltd.com/:splat 301
 http://itesltd.com/* https://itesltd.com/:splat 301
 
-/maintenance /maintenance.html 200
-/error /error.html 200
-
 /* /index.html 200
