@@ -1,4 +1,4 @@
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 const MAINTENANCE_PATH = '/maintenance.html';
 const ERROR_PATH = '/error.html';
