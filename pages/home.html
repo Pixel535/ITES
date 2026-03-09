@@ -7,11 +7,11 @@
                 loop
                 playsinline
                 preload="metadata"
-                poster="./assets/home/hero-poster.jpg"
+                poster="/assets/home/hero-poster.jpg"
         >
             <!-- docelowo dodaj też webm jako pierwsze źródło -->
-            <!-- <source src="./assets/home/hero.webm" type="video/webm"> -->
-            <source src="./assets/home/hero.mp4" type="video/mp4">
+            <!-- <source src="/assets/home/hero.webm" type="video/webm"> -->
+            <source src="/assets/home/hero.mp4" type="video/mp4">
         </video>
         <div class="home-hero__overlay"></div>
     </div>
@@ -25,8 +25,8 @@
             </p>
 
             <div class="home-hero__actions">
-                <a class="btn btn--primary" href="#/services">Explore services</a>
-                <a class="btn btn--ghost" href="#/portfolio">View portfolio</a>
+                <a class="btn btn--primary" href="/services" data-route="services">Explore services</a>
+                <a class="btn btn--ghost" href="/portfolio" data-route="portfolio">View portfolio</a>
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
     </header>
 
     <div class="home-portfolio-grid">
-        <a class="home-portfolio-card" href="#/portfolio" data-portfolio-tag="Meme">
+        <a class="home-portfolio-card" href="/portfolio" data-route="portfolio" data-portfolio-tag="Meme">
             <img class="home-portfolio-card__img" src="/assets/home/3.webp" alt="" loading="lazy" decoding="async">
             <span class="home-portfolio-card__overlay" aria-hidden="true"></span>
             <span class="home-portfolio-card__body">
@@ -95,7 +95,7 @@
             </span>
         </a>
 
-        <a class="home-portfolio-card" href="#/portfolio" data-portfolio-tag="Look at this dude">
+        <a class="home-portfolio-card" href="/portfolio" data-route="portfolio" data-portfolio-tag="Look at this dude">
             <img class="home-portfolio-card__img" src="/assets/home/4.webp" alt="" loading="lazy" decoding="async">
             <span class="home-portfolio-card__overlay" aria-hidden="true"></span>
             <span class="home-portfolio-card__body">
@@ -106,7 +106,7 @@
             </span>
         </a>
 
-        <a class="home-portfolio-card" href="#/portfolio" data-portfolio-tag="Chuj">
+        <a class="home-portfolio-card" href="/portfolio" data-route="portfolio" data-portfolio-tag="Chuj">
             <img class="home-portfolio-card__img" src="/assets/home/5.webp" alt="" loading="lazy" decoding="async">
             <span class="home-portfolio-card__overlay" aria-hidden="true"></span>
             <span class="home-portfolio-card__body">
@@ -119,7 +119,7 @@
     </div>
 
     <div class="home-portfolio-cta">
-        <a class="btn btn--primary btn--home-cta" href="#/portfolio">
+        <a class="btn btn--primary btn--home-cta" href="/portfolio" data-route="portfolio">
             Want to check our other work ?
         </a>
     </div>
