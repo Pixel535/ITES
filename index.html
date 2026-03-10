@@ -23,6 +23,45 @@
     <link rel="stylesheet" href="/css/slider.css?v=3" />
     <link rel="stylesheet" href="/css/home.css?v=3" />
 
+    <script>
+        (function () {
+            const originalPushState = history.pushState;
+            const originalReplaceState = history.replaceState;
+
+            history.pushState = function (...args) {
+                console.log('[DEBUG pushState]', args, new Error().stack);
+                return originalPushState.apply(this, args);
+            };
+
+            history.replaceState = function (...args) {
+                console.log('[DEBUG replaceState]', args, new Error().stack);
+                return originalReplaceState.apply(this, args);
+            };
+
+            window.addEventListener('hashchange', () => {
+                console.log('[DEBUG hashchange]', location.href, new Error().stack);
+            });
+
+            const originalAssign = window.location.assign.bind(window.location);
+            const originalReplace = window.location.replace.bind(window.location);
+
+            window.location.assign = function (...args) {
+                console.log('[DEBUG location.assign]', args, new Error().stack);
+                return originalAssign(...args);
+            };
+
+            window.location.replace = function (...args) {
+                console.log('[DEBUG location.replace]', args, new Error().stack);
+                return originalReplace(...args);
+            };
+
+            document.addEventListener('click', (event) => {
+                const link = event.target.closest('a');
+                if (!link) return;
+                console.log('[DEBUG click link]', link.outerHTML, link.href);
+            }, true);
+        })();
+    </script>
     <script type="module" src="/js/app.js?v=3"></script>
 </head>
 <body>
