@@ -30,7 +30,10 @@ function mountHome() {
         ([entry]) => {
             setTopbarHeroMode(entry.isIntersecting);
         },
-        { threshold: 0.12 }
+        {
+            threshold: 0,
+            rootMargin: '-100px 0px 0px 0px'
+        }
     );
 
     obs.observe(hero);
