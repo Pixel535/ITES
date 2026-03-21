@@ -11,7 +11,8 @@ export async function initPortfolio() {
 
     loaderStart({ delayMs: 150 });
     try {
-        items = await fetch('/data/portfolio.json', { cache: 'no-store' }).then((r) => r.json());
+        const rawItems = await fetch('/data/portfolio.json', { cache: 'no-store' }).then((r) => r.json());
+        items = Array.isArray(rawItems) ? rawItems.map(normalizePortfolioItem) : [];
     } finally {
         loaderEnd();
     }
@@ -70,6 +71,59 @@ export async function initPortfolio() {
 
         grid.dataset.boundKeydown = '1';
     }
+}
+
+function normalizePortfolioItem(item = {}) {
+    const normalizedMedia = normalizeMedia(item.media, item.images, item.title);
+    const fallbackCover = normalizedMedia[0]?.poster || normalizedMedia[0]?.src || '';
+
+    return {
+        ...item,
+        cover: item.cover || fallbackCover,
+        media: normalizedMedia,
+    };
+}
+
+function normalizeMedia(media, legacyImages, title = '') {
+    if (Array.isArray(media) && media.length) {
+        return media
+            .map((entry, idx) => normalizeMediaEntry(entry, title, idx))
+            .filter(Boolean);
+    }
+
+    if (Array.isArray(legacyImages) && legacyImages.length) {
+        return legacyImages
+            .map((src, idx) => normalizeMediaEntry({
+                type: 'image',
+                src,
+                alt: `${title} ${idx + 1}`,
+            }, title, idx))
+            .filter(Boolean);
+    }
+
+    return [];
+}
+
+function normalizeMediaEntry(entry, title = '', idx = 0) {
+    if (!entry) return null;
+
+    if (typeof entry === 'string') {
+        return {
+            type: 'image',
+            src: entry,
+            alt: `${title} ${idx + 1}`.trim(),
+        };
+    }
+
+    const src = typeof entry.src === 'string' ? entry.src.trim() : '';
+    if (!src) return null;
+
+    return {
+        type: entry.type === 'video' ? 'video' : 'image',
+        src,
+        alt: typeof entry.alt === 'string' ? entry.alt : `${title} ${idx + 1}`.trim(),
+        poster: typeof entry.poster === 'string' ? entry.poster : '',
+    };
 }
 
 function renderTags(tagbar, items) {

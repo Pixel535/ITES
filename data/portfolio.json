@@ -5,13 +5,42 @@
     "address": "Jana Pawła II 32",
     "tags": ["Meme", "Look at this dude"],
     "cover": "/assets/portfolio/project-1/1.webp",
-    "images": [
-      "/assets/portfolio/project-1/1.webp",
-      "/assets/portfolio/project-1/2.webp",
-      "/assets/portfolio/project-1/3.webp",
-      "/assets/portfolio/project-1/4.webp",
-      "/assets/portfolio/project-1/5.webp",
-      "/assets/portfolio/project-1/6.webp"
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-1/1.webp",
+        "alt": "Równe ziomeczki 1"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-1/2.webp",
+        "alt": "Równe ziomeczki 2"
+      },
+      {
+        "type": "video",
+        "src": "/assets/portfolio/project-1/demo.mp4",
+        "poster": "/assets/portfolio/project-1/1.webp"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-1/3.webp",
+        "alt": "Równe ziomeczki 3"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-1/4.webp",
+        "alt": "Równe ziomeczki 4"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-1/5.webp",
+        "alt": "Równe ziomeczki 5"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-1/6.webp",
+        "alt": "Równe ziomeczki 6"
+      }
     ],
     "description": "Short, premium description of the project. What was delivered, impact, stack, etc."
   },
@@ -21,9 +50,17 @@
     "address": "",
     "tags": ["Chuj"],
     "cover": "/assets/portfolio/project-2/1.webp",
-    "images": [
-      "/assets/portfolio/project-2/1.webp",
-      "/assets/portfolio/project-2/2.webp"
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-2/1.webp",
+        "alt": "Metale 1"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/project-2/2.webp",
+        "alt": "Metale 2"
+      }
     ],
     "description": "Brand system, guidelines, assets, and launch materials."
   }

@@ -1,3 +1,12 @@
+:root{
+    --slider-media-bg: #ffffff;
+    --slider-media-fit: contain;
+    --slider-media-position: center;
+    --slider-fade-duration: .22s;
+    --slider-arrow-offset: 14px;
+    --slider-arrow-size: 72px;
+}
+
 .modal .slider{
     position: absolute;
     inset: 0;
@@ -9,34 +18,39 @@
     overflow: hidden;
 }
 
-.modal .slider__imgwrap{
+.modal .slider__mediawrap{
     position: absolute;
-    inset: 0;          /* wypełnia cały viewport */
-    background: #fff;  /* białe tło */
+    inset: 0;
+    background: var(--slider-media-bg);
 }
 
-.modal .slider__imgwrap::before,
-.modal .slider__imgwrap::after{
+.modal .slider__mediawrap::before,
+.modal .slider__mediawrap::after{
     content: none;
 }
 
-/* przód: obraz zawsze w całości (contain) */
-.modal .slider__img{
+.modal .slider__media{
     position: absolute;
     inset: 0;
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
+    object-fit: var(--slider-media-fit) !important;
+    object-position: var(--slider-media-position) !important;
     display: block;
     z-index: 1;
     opacity: 1;
-    transition: opacity .22s ease;
+    transition: opacity var(--slider-fade-duration) ease;
+    background: var(--slider-media-bg);
 }
 
-.modal .slider__img.is-fading{ opacity: 0; }
+.modal .slider__media.is-fading{
+    opacity: 0;
+}
 
-/* strzałki zawsze w środku panelu */
+.modal .slider__video{
+    outline: none;
+}
+
 .modal .slider__btn{
     position: absolute;
     top: 50%;
@@ -45,7 +59,7 @@
     border: none;
     padding: 0;
     color: var(--slider-arrow-color, #ffffff);
-    font-size: 72px;
+    font-size: var(--slider-arrow-size);
     line-height: 1;
     cursor: pointer;
     z-index: 3;
@@ -56,5 +70,15 @@
     color: var(--slider-arrow-hover, #ffffffcc);
 }
 
-.modal .slider__btn--prev{ left: 14px; }
-.modal .slider__btn--next{ right: 14px; }
+.modal .slider__btn:disabled{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal .slider__btn--prev{
+    left: var(--slider-arrow-offset);
+}
+
+.modal .slider__btn--next{
+    right: var(--slider-arrow-offset);
+}
