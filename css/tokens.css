@@ -46,6 +46,11 @@
     --loader-size: 44px;
     --loader-ring: 4px;
     --loader-z: 9999;
+
+    --brand-logo-height: 62px;
+    --brand-logo-height-mobile: 40px;
+    --brand-logo-max-width: 180px;
+    --brand-logo-offset-y: 15px;
 }
 
 @media (prefers-color-scheme: light){
