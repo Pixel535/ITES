@@ -3,8 +3,17 @@
     --slider-media-fit: contain;
     --slider-media-position: center;
     --slider-fade-duration: .22s;
+
     --slider-arrow-offset: 14px;
     --slider-arrow-size: 72px;
+
+    --video-toggle-size: 72px;
+    --video-toggle-bg: rgba(0,0,0,.5);
+    --video-toggle-bg-hover: rgba(0,0,0,.7);
+    --video-toggle-color: #fff;
+    --video-toggle-radius: 50%;
+    --video-toggle-opacity-hidden: 0;
+    --video-toggle-scale-hidden: .92;
 }
 
 .modal .slider{
@@ -49,6 +58,52 @@
 
 .modal .slider__video{
     outline: none;
+}
+
+.modal .slider__video-container{
+    position: absolute;
+    inset: 0;
+}
+
+.modal .slider__video-toggle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--video-toggle-size);
+    height: var(--video-toggle-size);
+    border-radius: var(--video-toggle-radius);
+    background: var(--video-toggle-bg);
+    border: none;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transition:
+            background .2s ease,
+            transform .2s ease,
+            opacity .2s ease;
+}
+
+.modal .slider__video-toggle:hover{
+    background: var(--video-toggle-bg-hover);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.modal .slider__video-toggle.is-hidden{
+    opacity: var(--video-toggle-opacity-hidden);
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(var(--video-toggle-scale-hidden));
+}
+
+.modal .slider__video-icon{
+    width: 0;
+    height: 0;
+    border-left: 18px solid var(--video-toggle-color);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
 }
 
 .modal .slider__btn{

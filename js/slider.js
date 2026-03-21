@@ -91,18 +91,24 @@ function render() {
 function renderMedia(item) {
     if (item.type === 'video') {
         return `
-            <video
-                class="slider__media slider__video"
-                src="${escapeAttr(item.src)}"
-                ${item.poster ? `poster="${escapeAttr(item.poster)}"` : ''}
-                controls
-                playsinline
-                preload="metadata"
-                muted
-                defaultMuted
-                disablePictureInPicture
-                controlsList="nodownload noplaybackrate nofullscreen"
-            ></video>
+            <div class="slider__video-container">
+                <video
+                    class="slider__media slider__video"
+                    src="${escapeAttr(item.src)}"
+                    ${item.poster ? `poster="${escapeAttr(item.poster)}"` : ''}
+                    controls
+                    playsinline
+                    preload="metadata"
+                    muted
+                    defaultMuted
+                    disablePictureInPicture
+                    controlsList="nodownload noplaybackrate nofullscreen"
+                ></video>
+
+                <button class="slider__video-toggle" type="button" aria-label="Play video">
+                    <span class="slider__video-icon"></span>
+                </button>
+            </div>
         `;
     }
 
@@ -177,7 +183,10 @@ function attachSwipe(el) {
     let ignoreSwipe = false;
 
     const onPointerDown = (e) => {
-        ignoreSwipe = !!e.target.closest('video');
+        ignoreSwipe = !!e.target.closest(
+            'video, .slider__video-toggle, button, a, input, textarea, select, [data-no-swipe]'
+        );
+
         if (ignoreSwipe) return;
 
         isPointerDown = true;
@@ -237,7 +246,9 @@ function attachSwipe(el) {
 
 function bindVideoEvents() {
     const video = els.viewport?.querySelector('.slider__video');
-    if (!video) return;
+    const btn = els.viewport?.querySelector('.slider__video-toggle');
+
+    if (!video || !btn) return;
 
     video.muted = true;
     video.defaultMuted = true;
@@ -248,26 +259,73 @@ function bindVideoEvents() {
         if (video.volume !== 0) video.volume = 0;
     };
 
+    const showPlayButton = () => {
+        btn.classList.remove('is-hidden');
+        btn.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-label', 'Play video');
+    };
+
+    const hidePlayButton = () => {
+        btn.classList.add('is-hidden');
+        btn.setAttribute('aria-hidden', 'true');
+    };
+
+    const playVideo = async () => {
+        forceMuted();
+
+        if (video.ended) {
+            video.currentTime = 0;
+        }
+
+        try {
+            await video.play();
+        } catch (_) {
+            showPlayButton();
+        }
+    };
+
+    const pauseVideo = () => {
+        video.pause();
+    };
+
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        await playVideo();
+    });
+
+    video.addEventListener('click', async () => {
+        if (!video.paused && !video.ended) {
+            pauseVideo();
+        } else {
+            await playVideo();
+        }
+    });
+
     video.addEventListener('play', () => {
         forceMuted();
         stopAutoplay();
+        hidePlayButton();
     });
 
     video.addEventListener('pause', () => {
         forceMuted();
-
-        if (!video.ended) return;
-        restartAutoplay();
+        showPlayButton();
     });
 
     video.addEventListener('ended', () => {
         forceMuted();
+        showPlayButton();
         restartAutoplay();
     });
 
-    video.addEventListener('volumechange', () => {
-        forceMuted();
-    });
+    video.addEventListener('volumechange', forceMuted);
+
+    if (video.paused || video.ended) {
+        showPlayButton();
+    } else {
+        hidePlayButton();
+    }
 }
 
 function pauseActiveVideo() {
