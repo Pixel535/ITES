@@ -1,67 +1,185 @@
 [
   {
-    "id": "ziomeczki",
-    "title": "Równe ziomeczki",
-    "address": "Jana Pawła II 32",
-    "tags": ["Meme", "Look at this dude"],
-    "cover": "/assets/portfolio/project-1/1.webp",
+    "id": "ship_doors",
+    "title": "Ship Doors",
+    "address": "[PLACEHOLDER]",
+    "tags": ["Movie Props"],
+    "cover": "/assets/portfolio/Movie-Props/project-Ship-Doors/1.webp",
     "media": [
       {
         "type": "image",
-        "src": "/assets/portfolio/project-1/1.webp",
-        "alt": "Równe ziomeczki 1"
+        "src": "/assets/portfolio/Movie-Props/project-Ship-Doors/1.webp",
+        "alt": "ship_doors_1"
       },
       {
         "type": "image",
-        "src": "/assets/portfolio/project-1/2.webp",
-        "alt": "Równe ziomeczki 2"
+        "src": "/assets/portfolio/Movie-Props/project-Ship-Doors/2.webp",
+        "alt": "ship_doors_2"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Movie-Props/project-Ship-Doors/3.webp",
+        "alt": "ship_doors_3"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Movie-Props/project-Ship-Doors/4.webp",
+        "alt": "ship_doors_4"
       },
       {
         "type": "video",
-        "src": "/assets/portfolio/project-1/demo.mp4",
-        "poster": "/assets/portfolio/project-1/1.webp"
-      },
-      {
-        "type": "image",
-        "src": "/assets/portfolio/project-1/3.webp",
-        "alt": "Równe ziomeczki 3"
-      },
-      {
-        "type": "image",
-        "src": "/assets/portfolio/project-1/4.webp",
-        "alt": "Równe ziomeczki 4"
-      },
-      {
-        "type": "image",
-        "src": "/assets/portfolio/project-1/5.webp",
-        "alt": "Równe ziomeczki 5"
-      },
-      {
-        "type": "image",
-        "src": "/assets/portfolio/project-1/6.webp",
-        "alt": "Równe ziomeczki 6"
+        "src": "/assets/portfolio/Movie-Props/project-Ship-Doors/5.mp4"
       }
     ],
-    "description": "Short, premium description of the project. What was delivered, impact, stack, etc."
+    "description": "[PLACEHOLDER]"
   },
   {
-    "id": "metale",
-    "title": "Metale",
-    "address": "",
-    "tags": ["Chuj"],
-    "cover": "/assets/portfolio/project-2/1.webp",
+    "id": "kitchen_island",
+    "title": "Kitchen Island",
+    "address": "[PLACEHOLDER]",
+    "tags": ["Architectural Details"],
+    "cover": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/1.webp",
     "media": [
       {
         "type": "image",
-        "src": "/assets/portfolio/project-2/1.webp",
-        "alt": "Metale 1"
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/1.webp",
+        "alt": "kitchen_island_1"
       },
       {
         "type": "image",
-        "src": "/assets/portfolio/project-2/2.webp",
-        "alt": "Metale 2"
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/2.webp",
+        "alt": "kitchen_island_2"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/3.webp",
+        "alt": "kitchen_island_3"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/4.webp",
+        "alt": "kitchen_island_4"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/5.webp",
+        "alt": "kitchen_island_5"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/6.webp",
+        "alt": "kitchen_island_6"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Details/project-Kitchen-Island/7.webp",
+        "alt": "kitchen_island_7"
       }
     ],
-    "description": "Brand system, guidelines, assets, and launch materials."
+    "description": "[PLACEHOLDER]"
+  },
+  {
+    "id": "pool_laders",
+    "title": "Pool Laders",
+    "address": "[PLACEHOLDER]",
+    "tags": ["Architectural Elements"],
+    "cover": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/1.webp",
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/1.webp",
+        "alt": "pool_laders_1"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/2.webp",
+        "alt": "pool_laders_2"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/3.webp",
+        "alt": "pool_laders_3"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/4.webp",
+        "alt": "pool_laders_4"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/5.webp",
+        "alt": "pool_laders_5"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/6.webp",
+        "alt": "pool_laders_6"
+      },
+      {
+        "type": "video",
+        "src": "/assets/portfolio/Architectural-Elements/project-Pool-Laders/7.mp4"
+      }
+    ],
+    "description": "[PLACEHOLDER]"
+  },
+  {
+    "id": "mezzanine",
+    "title": "Mezzanine",
+    "address": "[PLACEHOLDER]",
+    "tags": ["Civil Engineering"],
+    "cover": "/assets/portfolio/Civil-Engineering/project-Mezzanine/1.webp",
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Civil-Engineering/project-Mezzanine/1.webp",
+        "alt": "mezzanine_1"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Civil-Engineering/project-Mezzanine/2.webp",
+        "alt": "mezzanine_2"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Civil-Engineering/project-Mezzanine/3.webp",
+        "alt": "mezzanine_3"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Civil-Engineering/project-Mezzanine/4.webp",
+        "alt": "mezzanine_4"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Civil-Engineering/project-Mezzanine/5.webp",
+        "alt": "mezzanine_5"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Civil-Engineering/project-Mezzanine/6.webp",
+        "alt": "mezzanine_6"
+      }
+    ],
+    "description": "[PLACEHOLDER]"
+  },
+  {
+    "id": "lounge_ramps",
+    "title": "Lounge Ramps",
+    "address": "[PLACEHOLDER]",
+    "tags": ["Airport Engineering"],
+    "cover": "/assets/portfolio/Airport-Engineering/project-Lounge-Ramps/1.webp",
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Airport-Engineering/project-Lounge-Ramps/1.webp",
+        "alt": "lounge_ramps_1"
+      },
+      {
+        "type": "image",
+        "src": "/assets/portfolio/Airport-Engineering/project-Lounge-Ramps/2.webp",
+        "alt": "lounge_ramps_2"
+      }
+    ],
+    "description": "[PLACEHOLDER]"
   }
 ]
