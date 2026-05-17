@@ -15,23 +15,21 @@
         <button class="modal__close" type="button" data-modal-close aria-label="Close">✕</button>
 
         <div class="modal__content">
-            <div class="modal__left">
-                <div class="slider" data-slider>
-                    <button class="slider__btn slider__btn--prev" type="button" data-prev aria-label="Previous">‹</button>
-                    <div class="slider__viewport" data-viewport></div>
-                    <button class="slider__btn slider__btn--next" type="button" data-next aria-label="Next">›</button>
-                </div>
+            <div class="modal__header">
+                <h2 class="modal__title" data-title></h2>
+                <div class="modal__divider" data-divider></div>
             </div>
 
-            <div class="modal__right">
-                <p class="modal__kicker">Project</p>
-                <h2 class="modal__title" data-title></h2>
-
-                <p class="modal__meta" data-address></p>
-
-                <p class="modal__desc" data-desc></p>
-
-                <div class="modal__tags" data-tags></div>
+            <div class="modal__media">
+                <div class="slider" data-slider>
+                    <button class="slider__btn slider__btn--prev" type="button" data-prev aria-label="Previous">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 2L4 7L9 12" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="slider__viewport" data-viewport></div>
+                    <button class="slider__btn slider__btn--next" type="button" data-next aria-label="Next">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 2L10 7L5 12" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

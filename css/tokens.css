@@ -23,7 +23,7 @@
     --gutter: 20px;
 
     /* NAV: jedno źródło prawdy */
-    --nav-h: 64px;
+    --nav-h: 96px;
     --topbar-h: var(--nav-h);
 
     /* typography */
@@ -46,6 +46,11 @@
     --loader-size: 44px;
     --loader-ring: 4px;
     --loader-z: 9999;
+
+    --brand-logo-height: 62px;
+    --brand-logo-height-mobile: 40px;
+    --brand-logo-max-width: 180px;
+    --brand-logo-offset-y: 0px;
 }
 
 @media (prefers-color-scheme: light){

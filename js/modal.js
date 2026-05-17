@@ -12,29 +12,16 @@ export function openModal(item) {
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
 
-    modal.querySelector('[data-title]').textContent = item.title || '';
+    const titleEl = modal.querySelector('[data-title]');
+    titleEl.textContent = item.title || '';
 
-    // ADDRESS (tekst, nie link)
-    const addressEl = modal.querySelector('[data-address]');
-    const address = (item.address || '').trim();
-    if (address) {
-        addressEl.textContent = address;
-        addressEl.style.display = 'block';
-    } else {
-        addressEl.textContent = '';
-        addressEl.style.display = 'none';
-    }
+    requestAnimationFrame(() => {
+        const divider = modal.querySelector('[data-divider]');
+        if (divider) divider.style.width = (titleEl.offsetWidth + 40) + 'px';
+    });
 
-    modal.querySelector('[data-desc]').textContent = item.description || '';
+    initSlider(modal.querySelector('[data-slider]'), item.media || []);
 
-    const tagsEl = modal.querySelector('[data-tags]');
-    tagsEl.innerHTML = (item.tags || [])
-        .map(t => `<span class="chip">${escapeHtml(t)}</span>`)
-        .join('');
-
-    initSlider(modal.querySelector('[data-slider]'), item.images || []);
-
-    // close handlers (bind tylko raz)
     if (!modal.dataset.boundClose) {
         modal.addEventListener('click', (e) => {
             const close = e.target.closest('[data-modal-close]');
@@ -78,7 +65,6 @@ function onKeydown(e) {
         return;
     }
 
-    // focus-trap (Tab)
     if (e.key !== 'Tab') return;
 
     const modal = document.querySelector('[data-modal]');
@@ -87,7 +73,7 @@ function onKeydown(e) {
     const focusables = modal.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
-    const list = Array.from(focusables).filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+    const list = Array.from(focusables).filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null);
     if (!list.length) return;
 
     const first = list[0];
@@ -100,10 +86,4 @@ function onKeydown(e) {
         e.preventDefault();
         first.focus();
     }
-}
-
-function escapeHtml(s='') {
-    return String(s).replace(/[&<>"']/g, m => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
-    }[m]));
 }

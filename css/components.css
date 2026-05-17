@@ -124,19 +124,29 @@
 
 /* desktop */
 @media (min-width: 900px){
-    .nav-toggle{ display:none; }
+    .nav-toggle{
+        display: none;
+    }
+
     .nav{
-        display:flex;
+        display: flex;
+        align-items: center;
         gap: 28px;
     }
+
     .nav.is-open{
         position: static;
-        display:flex;
+        display: flex;
         flex-direction: row;
         padding: 0;
         border: 0;
         background: transparent;
         box-shadow: none;
+    }
+
+    .nav__link{
+        display: inline-flex;
+        align-items: center;
     }
 }
 

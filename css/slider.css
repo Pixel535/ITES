@@ -1,3 +1,24 @@
+:root{
+    --slider-media-bg: #ffffff;
+    --slider-media-fit: contain;
+    --slider-media-position: center;
+    --slider-fade-duration: .22s;
+
+    --slider-arrow-offset: 14px;
+    --slider-arrow-size: 26px;
+    --slider-arrow-btn-size: 52px;
+    --slider-arrow-bg: rgba(0,0,0,.48);
+    --slider-arrow-bg-hover: rgba(0,0,0,.72);
+
+    --video-toggle-size: 72px;
+    --video-toggle-bg: rgba(0,0,0,.5);
+    --video-toggle-bg-hover: rgba(0,0,0,.7);
+    --video-toggle-color: #fff;
+    --video-toggle-radius: 50%;
+    --video-toggle-opacity-hidden: 0;
+    --video-toggle-scale-hidden: .92;
+}
+
 .modal .slider{
     position: absolute;
     inset: 0;
@@ -9,52 +30,122 @@
     overflow: hidden;
 }
 
-.modal .slider__imgwrap{
+.modal .slider__mediawrap{
     position: absolute;
-    inset: 0;          /* wypełnia cały viewport */
-    background: #fff;  /* białe tło */
+    inset: 0;
+    background: var(--slider-media-bg);
 }
 
-.modal .slider__imgwrap::before,
-.modal .slider__imgwrap::after{
+.modal .slider__mediawrap::before,
+.modal .slider__mediawrap::after{
     content: none;
 }
 
-/* przód: obraz zawsze w całości (contain) */
-.modal .slider__img{
+.modal .slider__media{
     position: absolute;
     inset: 0;
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
-    object-position: center !important;
+    object-fit: var(--slider-media-fit) !important;
+    object-position: var(--slider-media-position) !important;
     display: block;
     z-index: 1;
     opacity: 1;
-    transition: opacity .22s ease;
+    transition: opacity var(--slider-fade-duration) ease;
+    background: var(--slider-media-bg);
 }
 
-.modal .slider__img.is-fading{ opacity: 0; }
+.modal .slider__media.is-fading{
+    opacity: 0;
+}
 
-/* strzałki zawsze w środku panelu */
+.modal .slider__video{
+    outline: none;
+}
+
+.modal .slider__video-container{
+    position: absolute;
+    inset: 0;
+}
+
+.modal .slider__video-toggle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--video-toggle-size);
+    height: var(--video-toggle-size);
+    border-radius: var(--video-toggle-radius);
+    background: var(--video-toggle-bg);
+    border: none;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transition:
+            background .2s ease,
+            transform .2s ease,
+            opacity .2s ease;
+}
+
+.modal .slider__video-toggle:hover{
+    background: var(--video-toggle-bg-hover);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.modal .slider__video-toggle.is-hidden{
+    opacity: var(--video-toggle-opacity-hidden);
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(var(--video-toggle-scale-hidden));
+}
+
+.modal .slider__video-icon{
+    width: 0;
+    height: 0;
+    border-left: 18px solid var(--video-toggle-color);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+}
+
 .modal .slider__btn{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    width: var(--slider-arrow-btn-size);
+    height: var(--slider-arrow-btn-size);
+    border-radius: 50%;
+    background: var(--slider-arrow-bg);
     border: none;
     padding: 0;
-    color: var(--slider-arrow-color, #ffffff);
-    font-size: 72px;
-    line-height: 1;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
     cursor: pointer;
     z-index: 3;
     user-select: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 
 .modal .slider__btn:hover{
-    color: var(--slider-arrow-hover, #ffffffcc);
+    background: var(--slider-arrow-bg-hover);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 4px 16px rgba(0,0,0,.55);
 }
 
-.modal .slider__btn--prev{ left: 14px; }
-.modal .slider__btn--next{ right: 14px; }
+.modal .slider__btn:disabled{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal .slider__btn--prev{
+    left: var(--slider-arrow-offset);
+}
+
+.modal .slider__btn--next{
+    right: var(--slider-arrow-offset);
+}

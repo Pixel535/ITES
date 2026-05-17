@@ -4,7 +4,7 @@ import { initHome } from './home.js';
 import { loaderStart, loaderEnd } from './loader.js';
 
 initNav();
-//initHome();
+initHome();
 loaderStart({ delayMs: 150 });
 initRouter();
 
