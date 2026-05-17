@@ -133,7 +133,7 @@
 
 .home-s--sep-top{
     position: relative;
-    padding-top: calc(var(--home-s-py) + var(--home-sep-gap));
+    padding-top: var(--home-s-py);
     padding-bottom: var(--home-s-py);
 }
 
@@ -198,12 +198,26 @@
     }
 
     .home-s--reverse .home-s__inner{
-        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-columns: minmax(0, 600px) 1fr;
+        column-gap: clamp(32px, 5vw, 72px);
     }
 
     .home-s--reverse .home-s__media{
         order: -1;
     }
+
+    .home-s--reverse .home-s__text{
+        text-align: right;
+    }
+
+    .home-s--reverse .home-s__lead{
+        margin-inline-start: auto;
+    }
+
+    .home-s--reverse .home-s__actions{
+        justify-content: flex-end;
+    }
+
 }
 
 @media (max-width: 899px){

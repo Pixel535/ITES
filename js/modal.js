@@ -12,24 +12,13 @@ export function openModal(item) {
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
 
-    modal.querySelector('[data-title]').textContent = item.title || '';
+    const titleEl = modal.querySelector('[data-title]');
+    titleEl.textContent = item.title || '';
 
-    const addressEl = modal.querySelector('[data-address]');
-    const address = (item.address || '').trim();
-    if (address) {
-        addressEl.textContent = address;
-        addressEl.style.display = 'block';
-    } else {
-        addressEl.textContent = '';
-        addressEl.style.display = 'none';
-    }
-
-    modal.querySelector('[data-desc]').textContent = item.description || '';
-
-    const tagsEl = modal.querySelector('[data-tags]');
-    tagsEl.innerHTML = (item.tags || [])
-        .map((t) => `<span class="chip">${escapeHtml(t)}</span>`)
-        .join('');
+    requestAnimationFrame(() => {
+        const divider = modal.querySelector('[data-divider]');
+        if (divider) divider.style.width = (titleEl.offsetWidth + 40) + 'px';
+    });
 
     initSlider(modal.querySelector('[data-slider]'), item.media || []);
 
@@ -97,14 +86,4 @@ function onKeydown(e) {
         e.preventDefault();
         first.focus();
     }
-}
-
-function escapeHtml(s = '') {
-    return String(s).replace(/[&<>"']/g, (m) => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;',
-    }[m]));
 }
