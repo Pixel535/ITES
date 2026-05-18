@@ -1,11 +1,9 @@
-let timer = null;
 let index = 0;
 let media = [];
 let els = {};
 
 let swipeCleanup = null;
 
-const AUTOPLAY_MS = 4500;
 const SWIPE_THRESHOLD = 40;
 const FADE_MS = 180;
 
@@ -25,26 +23,17 @@ export function initSlider(root, items) {
     render();
 
     if (els.prev) {
-        els.prev.onclick = () => {
-            prev();
-            restartAutoplay();
-        };
+        els.prev.onclick = () => prev();
     }
 
     if (els.next) {
-        els.next.onclick = () => {
-            next();
-            restartAutoplay();
-        };
+        els.next.onclick = () => next();
     }
 
     swipeCleanup = attachSwipe(els.viewport);
-
-    restartAutoplay();
 }
 
 export function destroySlider() {
-    stopAutoplay();
     pauseActiveVideo();
 
     if (els.prev) els.prev.onclick = null;
@@ -138,12 +127,10 @@ function transitionTo(nextSlideIndex) {
     if (currentMediaEl) currentMediaEl.classList.add('is-fading');
 
     pauseActiveVideo();
-    stopAutoplay();
 
     window.setTimeout(() => {
         index = nextSlideIndex;
         render();
-        restartAutoplay();
     }, FADE_MS);
 }
 
@@ -152,23 +139,6 @@ function nextIndex() {
     return (index + 1) % media.length;
 }
 
-function restartAutoplay() {
-    stopAutoplay();
-
-    if (media.length <= 1) return;
-    if (isVideoSlide()) return;
-
-    timer = window.setInterval(() => {
-        next();
-    }, AUTOPLAY_MS);
-}
-
-function stopAutoplay() {
-    if (timer) {
-        clearInterval(timer);
-    }
-    timer = null;
-}
 
 function isVideoSlide(i = index) {
     return media[i]?.type === 'video';
@@ -221,7 +191,6 @@ function attachSwipe(el) {
             prev();
         }
 
-        restartAutoplay();
         dx = 0;
     };
 
@@ -304,7 +273,6 @@ function bindVideoEvents() {
 
     video.addEventListener('play', () => {
         forceMuted();
-        stopAutoplay();
         hidePlayButton();
     });
 
@@ -316,7 +284,6 @@ function bindVideoEvents() {
     video.addEventListener('ended', () => {
         forceMuted();
         showPlayButton();
-        restartAutoplay();
     });
 
     video.addEventListener('volumechange', forceMuted);

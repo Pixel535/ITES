@@ -159,6 +159,7 @@
     background: var(--secondary-color);
     color: #fff;
     font-weight: 600;
+    line-height: 1;
 }
 .btn--ghost{
     background: transparent;
