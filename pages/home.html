@@ -1,7 +1,7 @@
 <section class="home-hero" data-hero>
     <div class="home-hero__media" aria-hidden="true">
         <video
-                class="home-hero__video"
+                class="home-hero__video home-hero__video--desktop"
                 autoplay
                 muted
                 loop
@@ -10,6 +10,17 @@
                 poster="/assets/logo/Logo.webp"
         >
             <source src="/assets/home/MainAnimationDesktop.webm" type="video/webm">
+        </video>
+        <video
+                class="home-hero__video home-hero__video--mobile"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="/assets/logo/Logo.webp"
+        >
+            <source src="/assets/home/MainAnimationMobile.webm" type="video/webm">
         </video>
         <div class="home-hero__overlay"></div>
     </div>

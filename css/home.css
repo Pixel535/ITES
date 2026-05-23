@@ -55,6 +55,13 @@
     display: block;
 }
 
+.home-hero__video--mobile{ display: none; }
+
+@media (max-width: 899px){
+    .home-hero__video--desktop{ display: none; }
+    .home-hero__video--mobile{ display: block; }
+}
+
 .home-hero__overlay{
     position: absolute;
     inset: 0;
