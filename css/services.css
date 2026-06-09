@@ -1,25 +1,14 @@
 :root{
     --services-list-gap: var(--space-5);
     --services-card-min-height: clamp(260px, 28vw, 360px);
-    --services-card-radius: calc(var(--radius) + 4px);
-    --services-card-padding: clamp(18px, 2vw, 28px);
+    --services-card-radius: var(--radius-card);
+    --services-card-padding: var(--card-padding);
     --services-card-gap: var(--space-4);
-
-    --services-card-bg: var(--card);
-    --services-card-border: var(--border);
-    --services-card-shadow: var(--shadow);
 
     --services-text-size: 1rem;
     --services-text-line: 1.8;
-    --services-text-color: inherit;
 
-    --services-divider-width: 100%;
-    --services-divider-height: 1px;
-    --services-divider-color: var(--border);
-
-    --services-label-size: 1rem;
     --services-label-weight: 600;
-    --services-label-color: inherit;
 
     --services-list-indent: 1.2rem;
     --services-list-gap-y: 10px;
@@ -43,10 +32,10 @@
 
 .service-card{
     min-height: var(--services-card-min-height);
-    background: var(--services-card-bg);
-    border: 1px solid var(--services-card-border);
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: var(--services-card-radius);
-    box-shadow: var(--services-card-shadow);
+    box-shadow: var(--shadow);
     overflow: hidden;
 }
 
@@ -68,16 +57,15 @@
 }
 
 .service-card__divider{
-    width: var(--services-divider-width);
-    height: var(--services-divider-height);
-    background: var(--services-divider-color);
+    width: 100%;
+    height: 1px;
+    background: var(--border);
 }
 
 .service-card__content p{
     margin: 0;
     font-size: var(--services-text-size);
     line-height: var(--services-text-line);
-    color: var(--services-text-color);
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;
@@ -85,9 +73,8 @@
 }
 
 .service-card__label{
-    font-size: var(--services-label-size);
+    font-size: var(--services-text-size);
     font-weight: var(--services-label-weight);
-    color: var(--services-label-color);
 }
 
 .service-card__list{
@@ -100,7 +87,6 @@
 .service-card__list li{
     font-size: var(--services-text-size);
     line-height: var(--services-text-line);
-    color: var(--services-text-color);
     text-align: justify;
     text-justify: inter-word;
     hyphens: auto;

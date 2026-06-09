@@ -2,6 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://itesltd.com/</loc>
+        <changefreq>monthly</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://itesltd.com/about</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://itesltd.com/services</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://itesltd.com/portfolio</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://itesltd.com/work-process</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://itesltd.com/contact</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
     </url>
 </urlset>

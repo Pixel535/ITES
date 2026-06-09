@@ -1,5 +1,4 @@
-https://www.itesltd.com/* https://itesltd.com/:splat 301
-http://www.itesltd.com/* https://itesltd.com/:splat 301
-http://itesltd.com/* https://itesltd.com/:splat 301
+# www → non-www redirects must be configured in Cloudflare Dashboard
+# Rules → Redirect Rules (Bulk Redirects) — _redirects does NOT support absolute URLs as source
 
 /* /index.html 200

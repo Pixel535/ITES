@@ -31,7 +31,7 @@ body.modal-open{
     width: min(1520px, 100%);
     height: min(93vh, 1060px);
     background: #fff;
-    border-radius: 22px;
+    border-radius: var(--radius-modal);
     border: 1px solid rgba(0,0,0,.12);
     box-shadow: 0 28px 80px rgba(0,0,0,.28);
     overflow: hidden;

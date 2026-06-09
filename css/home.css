@@ -7,9 +7,6 @@
     --hero-lead: var(--fs-3);
     --hero-max: 860px;
 
-    --home-card-bg: rgba(255,255,255,.08);
-    --home-card-border: rgba(255,255,255,.14);
-
     --topbar-hero-fg: #ffffff;
     --topbar-hero-bg: rgba(0,0,0,0);
     --home-sep-h: 1px;
@@ -20,10 +17,7 @@
 
     --home-media-radius: var(--radius, 16px);
 
-    --home-sep-gap: var(--home-s-py);
-
-    --portfolio-grid-gap: var(--space-4, 24px);
-    --portfolio-card-radius: calc(var(--radius, 16px) + 4px);
+    --home-portfolio-grid-gap: var(--space-4);
     --portfolio-card-overlay: rgba(0,0,0,.45);
     --portfolio-card-overlay-hover: rgba(0,0,0,.30);
 
@@ -155,7 +149,7 @@
     width: 100%;
     height: var(--home-sep-h);
     background: var(--secondary-color);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
 }
 
 .home-s__title{
@@ -253,7 +247,7 @@
 
 .home-portfolio-grid{
     display: grid;
-    gap: var(--portfolio-grid-gap);
+    gap: var(--home-portfolio-grid-gap);
     grid-template-columns: 1fr;
 }
 
@@ -266,7 +260,7 @@
 .home-portfolio-card{
     position: relative;
     display: block;
-    border-radius: var(--portfolio-card-radius);
+    border-radius: var(--radius-card);
     overflow: hidden;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);

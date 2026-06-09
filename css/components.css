@@ -154,7 +154,7 @@
 .btn{
     display:inline-flex; align-items:center; justify-content:center;
     padding: 12px 16px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     border: 1px solid var(--border);
     background: var(--secondary-color);
     color: #fff;
@@ -165,7 +165,6 @@
     background: transparent;
     color: var(--primary-color);
 }
-.actions{ display:flex; gap: 12px; flex-wrap: wrap; }
 
 /* Card + footer (white theme) */
 .card{

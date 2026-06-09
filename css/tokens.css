@@ -7,9 +7,6 @@
     --secondary-color: #5E1521;                 /* rgb(94,21,33) */
     --secondary-color-hover: #741c2b;
 
-    --slider-arrow-color: #374151;   /* gray 700 */
-    --slider-arrow-hover: #111827;
-
     --modal-close-color: #374151;
     --modal-close-hover: #111827;
 
@@ -19,8 +16,15 @@
 
     /* layout */
     --radius: 14px;
+    --radius-card: calc(var(--radius) + 4px);  /* 18px — karty, panele */
+    --radius-modal: calc(var(--radius) + 8px); /* 22px — panel modala */
+    --radius-pill: 999px;                       /* przyciski, tagi, badges */
     --container: 1800px;
     --gutter: 20px;
+
+    --card-padding: clamp(18px, 2vw, 28px);    /* responsywny padding kart */
+
+    --shadow-hover: 0 18px 50px rgba(36,33,33,.10); /* cień przy hover */
 
     /* NAV: jedno źródło prawdy */
     --nav-h: 96px;
@@ -50,7 +54,6 @@
     --brand-logo-height: 62px;
     --brand-logo-height-mobile: 40px;
     --brand-logo-max-width: 180px;
-    --brand-logo-offset-y: 0px;
 }
 
 @media (prefers-color-scheme: light){

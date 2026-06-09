@@ -1,8 +1,8 @@
 :root{
     --contact-max-width: 1200px;
     --contact-divider-width: min(82%, 720px);
-    --contact-card-radius: calc(var(--radius) + 4px);
-    --contact-card-padding: clamp(18px, 2vw, 28px);
+    --contact-card-radius: var(--radius-card);
+    --contact-card-padding: var(--card-padding);
     --contact-card-gap: var(--space-4);
     --contact-card-divider: var(--secondary-color);
     --contact-image-size: clamp(120px, 22vw, 176px);
@@ -15,7 +15,7 @@
     --contact-card-mobile-max: 560px;
     --contact-location-max: 860px;
     --contact-location-map-min-h: 320px;
-    --contact-location-card-padding: clamp(18px, 2vw, 28px);
+    --contact-location-card-padding: var(--card-padding);
     --contact-location-gap: var(--space-4);
 }
 

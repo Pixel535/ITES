@@ -9,8 +9,8 @@
     --about-list-padding-left: 1.4rem;
     --about-badge-padding-y: 12px;
     --about-badge-padding-x: 18px;
-    --about-badge-radius: 999px;
-    --about-badge-bg: rgba(36,33,33,.03);
+    --about-badge-radius: var(--radius-pill);
+    --about-badge-bg: var(--card);
     --about-badge-border: var(--border);
     --about-badge-text: var(--text);
     --about-badge-letter-spacing: .04em;
@@ -29,7 +29,7 @@
     gap: var(--about-gap);
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: calc(var(--radius) + 4px);
+    border-radius: var(--radius-card);
     box-shadow: var(--shadow);
     text-align: center;
 }
