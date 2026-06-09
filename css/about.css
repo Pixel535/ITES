@@ -102,8 +102,10 @@
 
 .about-badge{
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     min-width: 220px;
     padding: var(--about-badge-padding-y) var(--about-badge-padding-x);
     border: 1px solid var(--about-badge-border);
@@ -116,6 +118,30 @@
     letter-spacing: var(--about-badge-letter-spacing);
     text-align: center;
     box-sizing: border-box;
+}
+
+.about-badge__logo{
+    width: auto;
+    height: 56px;
+    object-fit: contain;
+}
+
+.about-accreditations{
+    width: 100%;
+    max-width: var(--about-text-width);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.about-accreditation__logo{
+    height: 64px;
+    width: auto;
+    object-fit: contain;
 }
 
 @media (max-width: 768px){
